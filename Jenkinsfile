@@ -14,7 +14,7 @@ environment {
          stage('Push Docker Image') {
               steps {
                   withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-                      sh " docker push ${env.IMAGE_REPO}:${env.GIT_COMMIT} ."
+                      sh " docker image push ${env.IMAGE_REPO}:${env.GIT_COMMIT} ."
                      
                   }
               }

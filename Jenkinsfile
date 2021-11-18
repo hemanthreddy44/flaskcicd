@@ -1,22 +1,20 @@
 pipeline {
      agent any
+environment {
+    IMAGE_REPO = "hemanthhr/flaskhello"
+    // Instead of hemanthhr, use your git username
+}     
      stages {
-         stage('Build') {
-              steps {
-                  sh 'echo Building...'
-              }
-         }
-
          stage('Build Docker Image') {
               steps {
-                  sh 'docker build -t flaskhello .'
+
+                  sh " docker image build -t  ${env.IMAGE_REPO}:${env.GIT_COMMIT} ."
               }
          }
          stage('Push Docker Image') {
               steps {
                   withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-                      sh "docker tag flaskhello hemanthhr/flaskhello"
-                      sh 'docker push hemanthhr/flaskhello'
+                      sh 'docker push ${env.IMAGE_REPO}:${env.GIT_COMMIT}'
                   }
               }
          }  

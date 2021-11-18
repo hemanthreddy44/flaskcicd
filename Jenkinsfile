@@ -15,7 +15,7 @@ environment {
               steps {
                   withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
                       sh " docker image push ${env.IMAGE_REPO}:${env.GIT_COMMIT}"
-                     
+                      sh " aws s3 ls"
                   }
               }
          }  

@@ -25,7 +25,7 @@ environment {
           stage('deploy latesh image') {
               steps {
 
-                  sh "aws ecs update-service --cluster abhi --service redd --task-definition maddy:8 --desired-count 2 --force-new-deployment"
+                  sh "aws ecs update-service --cluster abhi --service reddd --task-definition maddy:8 --force-new-deployment"
               }
          }
              }

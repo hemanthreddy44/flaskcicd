@@ -21,6 +21,12 @@ environment {
                       sh "docker push public.ecr.aws/c4b1v8n7/hemanthflaskapp:latest"
                   }
               }
-         }  
+         } 
+          stage('deploy latesh image') {
+              steps {
+
+                  sh "aws ecs update-service --cluster abhi --service redd --task-definition maddy:8 --desired-count 2 --force-new-deployment"
+              }
+         }
              }
         }

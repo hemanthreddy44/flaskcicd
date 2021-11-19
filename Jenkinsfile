@@ -16,6 +16,7 @@ environment {
                   withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
                       sh " docker image push ${env.IMAGE_REPO}:${env.GIT_COMMIT}"
                       sh " aws s3 ls"
+                      sh "docker push public.ecr.aws/c4b1v8n7/hemanthflaskapp:latest"
                   }
               }
          }  

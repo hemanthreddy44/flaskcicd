@@ -24,9 +24,9 @@ environment {
          } 
           stage('deploy latesh image') {
               steps {
-                  {
+                  
     input message: ‘Approve Deploy?’, ok: ‘Yes’
-}
+
                   sh "aws ecs update-service --cluster abhi --service reddd --task-definition maddy:8 --force-new-deployment"
               }
          }

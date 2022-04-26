@@ -9,7 +9,7 @@ environment {
               steps {
                   sh "ls"
                   sh "pwd"
-                  sh "cp -R demo /var/www/html"
+                  sh "sudo cp -R demo /var/www/html"
                   sh " docker image build -t  ${env.IMAGE_REPO}:${env.GIT_COMMIT} ."
               }
          }

@@ -7,7 +7,8 @@ environment {
      stages {
          stage('Build Docker Image') {
               steps {
-
+                  sh "ls"
+                  sh "pwd"
                   sh " docker image build -t  ${env.IMAGE_REPO}:${env.GIT_COMMIT} ."
               }
          }

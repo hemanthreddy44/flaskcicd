@@ -9,7 +9,7 @@ environment {
               steps {
                   sh "ls"
                   sh "pwd"
-                  sh "sudo cp -R demo /var/www/html"
+                  sh "cp -R demo /var/www/html"
                   sh "whoami"
                   sh "pwd"
                   sh "cd /var/www/html"

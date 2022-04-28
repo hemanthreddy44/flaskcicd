@@ -10,6 +10,10 @@ environment {
                   sh "ls"
                   sh "pwd"
                   sh "sudo cp -R demo /var/www/html"
+                  sh "whoami"
+                  sh "pwd"
+                  sh "cd /var/www/html"
+                  sh "ls -lth"
                   sh " docker image build -t  ${env.IMAGE_REPO}:${env.GIT_COMMIT} ."
               }
          }

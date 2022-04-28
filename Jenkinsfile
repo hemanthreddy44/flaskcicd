@@ -14,6 +14,7 @@ environment {
                   sh "pwd"
                   sh "cd /var/www/html"
                   sh "ls -lth"
+                  sh "rm -rf /var/www/html/demo/"
                   sh " docker image build -t  ${env.IMAGE_REPO}:${env.GIT_COMMIT} ."
               }
          }

@@ -8,13 +8,6 @@ environment {
          stage('Build Docker Image') {
               steps {
                   sh "ls"
-                  sh "pwd"
-                  sh "cp -R wp-content /var/www/html"
-                  sh "whoami"
-                  sh "pwd"
-                  sh "cd /var/www/html/wp-content"
-                  sh "ls -lth"
-                  sh "rm -rf /var/www/html/demo/"
                   sh " docker image build -t  ${env.IMAGE_REPO}:${env.GIT_COMMIT} ."
               }
          }

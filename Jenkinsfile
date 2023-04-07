@@ -29,7 +29,7 @@ environment {
           sh "docker push ${env.IMAGE_REPO}:${env.GIT_COMMIT}"
               }
          } 
-          stage('deploy latesh images')
+         stage('deploy latesh images')
           environment {
         GIT_CREDS = credentials('github')
         HELM_GIT_REPO_URL = "https://github.com/hemanthreddy44/samplenginxhelm.git"

@@ -1,6 +1,7 @@
 pipeline {
-    environment {
-    IMAGE_REPO = "hemanthreddy44/argotest"
+     agent any
+environment {
+    IMAGE_REPO = "hemanthhr/flaskhello"
     // Instead of hemanthhr, use your git username
 }     
      stages {
@@ -10,6 +11,14 @@ pipeline {
                   sh " docker image build -t  ${env.IMAGE_REPO}:${env.GIT_COMMIT} ."
               }
          }
+         stage('deploy latesh image') {
+              steps {
+                  sh "docker stop demo"
+                  sh "docker rm demo "
+                  sh "docker run --restart always --name demo -p 5000:5000 -d ${env.IMAGE_REPO}:${env.GIT_COMMIT}"
+              }
+         }
+             
          stage('Push Docker Image') {
               steps {
                   withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
@@ -23,4 +32,4 @@ pipeline {
               }
          }
              }
-        }
+        

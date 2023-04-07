@@ -29,3 +29,4 @@ environment {
           sh "docker push ${env.IMAGE_REPO}:${env.GIT_COMMIT}"
               }
          } 
+     }

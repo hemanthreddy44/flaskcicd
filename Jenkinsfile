@@ -59,6 +59,7 @@ environment {
               git add values.yaml
               git commit -m 'Triggered Build'
               git push https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/$GIT_CREDS_USR/rsvpapp-helm-cicd.git
+              '''
               }
          }
              }

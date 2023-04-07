@@ -1,6 +1,34 @@
 pipeline {
-     agent any
-environment {
+    agent {
+      kubernetes  {
+            label 'jenkins-slave'
+             defaultContainer 'jnlp'
+      yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: dind
+    image: docker:18.09-dind
+    securityContext:
+      privileged: true
+  - name: docker
+    env:
+    - name: DOCKER_HOST
+      value: 127.0.0.1
+    image: docker:18.09
+    command:
+    - cat
+    tty: true
+  - name: tools
+    image: argoproj/argo-cd-ci-builder:v1.0.0
+    command:
+    - cat
+    tty: true
+"""
+        }
+    }
+    environment {
     IMAGE_REPO = "hemanthreddy44/argotest"
     // Instead of hemanthhr, use your git username
 }     

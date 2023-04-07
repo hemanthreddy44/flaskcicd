@@ -1,7 +1,7 @@
 pipeline {
      agent any
 environment {
-    IMAGE_REPO = "hemanthhr/flaskhello"
+    IMAGE_REPO = "hemanthreddy44/argotest"
     // Instead of hemanthhr, use your git username
 }     
      stages {

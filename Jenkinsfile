@@ -36,16 +36,13 @@ environment {
           stage('update image tag')
           {
                steps{
-                sh "git config --global user.email ${env.GIT_REPO_EMAIL}"
-                sh "ls"
-                sh "cd samplenginxhelm"
-                sh "ls"
-                sh "pwd"
                 sh "git checkout -b master"
           dir("samplenginxhelm") {
               sh "git checkout ${env.GIT_REPO_BRANCH}"
             //install done
             sh '''#!/bin/bash
+              ls
+              git config --global user.email ${env.GIT_REPO_EMAIL}
               echo $GIT_REPO_EMAIL
               echo $GIT_COMMIT
               ls -lth

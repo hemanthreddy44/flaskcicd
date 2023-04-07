@@ -39,9 +39,11 @@ environment {
             //install done
             sh '''#!/bin/bash
               ls
+              rm -r samplenginxhelm
               git clone https://github.com/hemanthreddy44/samplenginxhelm.git
               ls 
               pwd
+              cd samplenginxhelm/nginx/
               git config --global user.email ${env.GIT_REPO_EMAIL}
               echo $GIT_REPO_EMAIL
               echo $GIT_COMMIT
@@ -52,7 +54,7 @@ environment {
               pwd
               git add values.yaml
               git commit -m 'Triggered Build'
-              git push https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/$GIT_CREDS_USR/rsvpapp-helm-cicd.git
+              git push https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/$GIT_CREDS_USR/samplenginxhelm.git
             '''
                }
           }

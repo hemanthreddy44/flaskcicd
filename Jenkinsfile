@@ -26,7 +26,7 @@ environment {
                   }
               }
          } 
-          stage('deploy latesh image') {
+          stage('deploy latesh images') {
               steps {
                   sh "deploy"
               }

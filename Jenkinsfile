@@ -36,7 +36,6 @@ environment {
           stage('update image tag')
           {
                steps{
-                sh "git clone https://${env.HELM_GIT_REPO_URL}"
                 sh "git config --global user.email ${env.GIT_REPO_EMAIL}"
                 sh "ls"
                 sh "cd samplenginxhelm"
